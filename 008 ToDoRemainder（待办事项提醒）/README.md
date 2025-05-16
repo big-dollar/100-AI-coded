@@ -37,7 +37,7 @@
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/yourusername/todo-reminder.git
+git clone git@github.com:big-dollar/100-AI-coded.git
 cd todo-reminder
 ```
 
