@@ -1,11 +1,20 @@
 from PyQt5.QtWidgets import QSystemTrayIcon, QMenu, QAction, QApplication, QDialog
 from PyQt5.QtGui import QIcon, QPixmap, QPainter, QColor, QFont
 from PyQt5.QtCore import Qt
+import os
+import sys
 from .todo_dialog import TodoDialog
+
+def get_resource_path(relative_path):
+    """获取资源文件的绝对路径"""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 class TrayIconQt(QSystemTrayIcon):
     def __init__(self, parent):
-        super().__init__(QIcon("ui/todo.ico"), parent)
+        icon_path = get_resource_path("ui/todo.ico")
+        super().__init__(QIcon(icon_path), parent)
         self.parent = parent
         self.show_window_callback = None
         self.init_ui()
@@ -55,7 +64,8 @@ class TrayIconQt(QSystemTrayIcon):
         painter = QPainter(pixmap)
         
         # 绘制基础图标
-        icon = QIcon("ui/todo.ico")
+        icon_path = get_resource_path("ui/todo.ico")
+        icon = QIcon(icon_path)
         icon_pix = icon.pixmap(64, 64)
         painter.drawPixmap(0, 0, icon_pix)
         

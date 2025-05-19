@@ -1,7 +1,9 @@
 import os
+import sys
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtGui import QIcon
 from ui.main_window_qt import MainWindowQt
-from ui.tray_icon_qt import TrayIconQt
+from ui.tray_icon_qt import TrayIconQt, get_resource_path
 from database.db_manager import DatabaseManager
 
 class TodoAppQt(QMainWindow):
@@ -9,6 +11,9 @@ class TodoAppQt(QMainWindow):
         super().__init__()
         self.setWindowTitle("待办事项提醒 - Author: Big-Dollar")
         self.setGeometry(100, 100, 800, 600)
+        
+        # 设置窗口图标
+        self.setWindowIcon(QIcon(get_resource_path("ui/todo.ico")))
 
         # 数据目录
         data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
