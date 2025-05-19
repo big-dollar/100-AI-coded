@@ -37,7 +37,7 @@
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/yourusername/todo-reminder.git
+git clone git@github.com:big-dollar/100-AI-coded.git
 cd todo-reminder
 ```
 
@@ -116,7 +116,7 @@ todo-reminder/
 
 如有问题或建议，请通过以下方式联系：
 - 提交 Issue
-- 发送邮件至：your.email@example.com
+- 发送邮件至：centos@126.com
 
 ## 🌟 支持项目
 
